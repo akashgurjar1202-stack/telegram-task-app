@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Channels</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background-color: #061813;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 15px;
+            margin: 0;
+        }
+        .user-card {
+            background: #0d261f;
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #1a4236;
+            margin-bottom: 20px;
+        }
+        .user-card strong { color: #ffffff; }
+        .pending-tag { color: #ffca28; font-size: 12px; font-weight: bold; }
+        .title { font-size: 14px; letter-spacing: 1px; color: #a5d6a7; margin-bottom: 15px; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .channel-box {
+            background: #0d261f;
+            border: 1px solid #1a4236;
+            border-radius: 12px;
+            padding: 15px 8px;
+        }
+        .channel-box h4 { margin: 8px 0 4px; font-size: 13px; }
+        .join-link {
+            color: #81c784;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        .verify-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="user-card">
+        <strong id="username">PROFESSOR</strong>
+        <span class="pending-tag">PENDING</span>
+    </div>
+
+    <div class="title">JOIN REQUIRED CHANNELS</div>
+
+    <div class="grid">
+        <div class="channel-box">
+            <h4>Free Cash Times</h4>
+            <a href="https://t.me/YOUR_CHANNEL_1" class="join-link" target="_blank">Join Required</a>
+        </div>
+        <div class="channel-box">
+            <h4>Top Looters</h4>
+            <a href="https://t.me/YOUR_CHANNEL_2" class="join-link" target="_blank">Join Required</a>
+        </div>
+        <div class="channel-box">
+            <h4>Sigma Looters</h4>
+            <a href="https://t.me/YOUR_CHANNEL_3" class="join-link" target="_blank">Join Required</a>
+        </div>
+        <div class="channel-box">
+            <h4>Earn Money Tips</h4>
+            <a href="https://t.me/YOUR_CHANNEL_4" class="join-link" target="_blank">Join Required</a>
+        </div>
+    </div>
+
+    <button class="verify-btn" onclick="verifyJoins()">VERIFY NOW</button>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        if(tg.initDataUnsafe && tg.initDataUnsafe.user) {
+            document.getElementById("username").innerText = tg.initDataUnsafe.user.first_name;
+        }
+        function verifyJoins() {
+            alert("Checking your channel subscriptions... Please wait!");
+        }
+    </script>
+</body>
+</html>
